@@ -3,12 +3,13 @@ package com.wipro.capstoneproject.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.capstoneproject.entity.User;
@@ -16,12 +17,11 @@ import com.wipro.capstoneproject.service.IUserService;
 import com.wipro.capstoneproject.service.UserServiceImp;
 
 @RestController
-@RequestMapping("/cap/project/users")
 public class UserController {
 
 	@Autowired
 	IUserService service;
-
+	
 	@PostMapping("/add")
 	public User add(@RequestBody User user) {
 
@@ -62,6 +62,11 @@ public class UserController {
 
 		return service.getAllUsers();
 
+	}
+	@DeleteMapping("/delete/{uid}")
+	public ResponseEntity<String> deleteById(@PathVariable long uid){
+		return service.deleteUserById(uid);
+		
 	}
 
 }
