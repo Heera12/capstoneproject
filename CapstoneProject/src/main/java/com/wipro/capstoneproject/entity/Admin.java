@@ -1,5 +1,6 @@
 package com.wipro.capstoneproject.entity;
-// admin entity class
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,17 +13,19 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
-@Table(name = "User")
-public class User {
+@Data
+@Table(name="ADMIN_TABLE")
+public class Admin {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long uid;
-	private String uname;
-	private String fname;
-	private String lname;
+	private long id;
+	@Column(name="Admin_Name")
+	private String name;
+	@Column(name="Admin_Email")
 	private String email;
+	@Column(name="Admin_Password")
 	private String password;
 
 }
