@@ -15,15 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name="ADMIN TABLE")
+@Table(name="ADMIN_TABLE")
 public class Admin {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Column(name="Admin Name")
-	private String adminname;
-	@Column(name="Admin Password")
+	@Column(name="Admin_Name")
+	private String name;
+	@Column(name="Admin_Email")
+	private String email;
+	@Column(name="Admin_Password")
 	private String password;
 
 }
