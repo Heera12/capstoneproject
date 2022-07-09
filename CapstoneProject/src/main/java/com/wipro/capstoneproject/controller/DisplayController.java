@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("name")
 public class DisplayController {
-	
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String displayPage() {
-    	return "home";
-        }
+	public String displayPage() {
+		return "home";
+	}
 
 }
