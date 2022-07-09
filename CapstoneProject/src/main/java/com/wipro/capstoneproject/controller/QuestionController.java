@@ -32,7 +32,7 @@ public class QuestionController
         model.addAttribute("listQuestions", listQuestions);
         model.addAttribute("keyword", keyword);
          
-        return "questions";
+        return "question";
     }
         @GetMapping("/new")
         public String recentlyAddedQuestions(Model model) {
