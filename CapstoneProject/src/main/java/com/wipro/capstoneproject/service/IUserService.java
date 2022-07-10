@@ -2,8 +2,6 @@ package com.wipro.capstoneproject.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.wipro.capstoneproject.dto.UserDTO;
 import com.wipro.capstoneproject.entity.User;
 
@@ -17,8 +15,10 @@ public interface IUserService  {
 
 	public User getUserById(long uid);
 
-	public ResponseEntity<String> deleteUserById(long uid);
+	public boolean deleteUserById(long uid);
 
-	public List<User> getUserByName(String uname);
+	public User getUserByName(String uname);
+	
+	public User login(UserDTO userDTO);
 
 }

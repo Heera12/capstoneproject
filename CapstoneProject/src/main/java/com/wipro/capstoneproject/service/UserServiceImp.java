@@ -3,13 +3,12 @@ package com.wipro.capstoneproject.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.wipro.capstoneproject.dto.UserDTO;
 import com.wipro.capstoneproject.entity.User;
+import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
+import com.wipro.capstoneproject.exception.UserNotFoundException;
 import com.wipro.capstoneproject.repository.IUserRepository;
 
 @Service
@@ -18,9 +17,28 @@ public class UserServiceImp implements IUserService {
 	@Autowired
 	IUserRepository repo;
 
-	@Autowired
-	RestTemplate restTemplate;
+	@Override
+	public User login(UserDTO userDTO)
+	{
+		
+		System.out.println("****** name: "+ userDTO.getUname() + "  password: " + userDTO.getPassword());
+		User user = repo.findByUname(userDTO.getUname());
+		
+		
+		System.out.println("************************* user is " + user);
+		if(null == user) {
+			throw new UserNotFoundException("user not found");
+		}
+		
+		if(!user.getPassword().equalsIgnoreCase(userDTO.getPassword())) {
+			throw new PasswordDoesNotMatchException("password does not match");
+		}
+		
+		return user;
+	}
+	
 
+	
 	@Override
 	public User addUser(UserDTO userDTO) {
 
@@ -51,18 +69,18 @@ public class UserServiceImp implements IUserService {
 
 	@Override
 	public User getUserById(long uid) {
-		return repo.findById(uid).orElse(new User());
+		return repo.findById(uid).orElseThrow();
 	}
 
 	@Override
-	public ResponseEntity<String> deleteUserById(long uid) {
+	public boolean deleteUserById(long uid) {
 		repo.deleteById(uid);
-		return new ResponseEntity<String>("Record Deleted Sucessfully", HttpStatus.ACCEPTED);
+		return true;
 
 	}
 
 	@Override
-	public List<User> getUserByName(String uname) {
+	public User getUserByName(String uname) {
 		return repo.findByUname(uname);
 	}
 
