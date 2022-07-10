@@ -1,0 +1,24 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-88559-1">
+        <title> 
+            Home - DoCnnect
+        </title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstarp.min.css" />
+    </head>
+    <body>
+        <div class="container text-center">
+            <div>
+                <h1>Welcome to DoConnect</h1>
+            </div>
+            <div>
+                <h3><a th:href="@{/List_users}">List All Users</a></h3>
+                <h3><a th:href="@{/register}">Register</a></h3>
+                <h3><a th:href="@{/Login}">Login</a></h3>
+            </div>
+        </div>
+    </body>
+</html>
