@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wipro</groupId>
-	<artifactId>CapstoneServer</artifactId>
+	<artifactId>CapstoneServer1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CapstoneServer</name>
+	<name>CapstoneServer1</name>
 	<description>Demo project for Capstone Server  Application</description>
 	<properties>
 		<java.version>17</java.version>
