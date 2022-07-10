@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.stereotype.Controller;
 
 @Controller
+
 @SessionAttributes("name")
 public class DisplayController {
 	
@@ -38,5 +39,27 @@ public class DisplayController {
 			  return "home"; 
 			  }
 		 
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String displayPage() {
+		return "home";
+	}
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public String userPage() {
+		return "users";
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage() {
+		return "login";
+	}
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signupPage() {
+		return "signup";
+	}
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchPage() {
+		return "search";
+	}
+
 
 }
