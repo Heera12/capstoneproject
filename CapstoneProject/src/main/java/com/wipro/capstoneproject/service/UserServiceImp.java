@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.wipro.capstoneproject.dto.UserDTO;
 import com.wipro.capstoneproject.entity.User;
 import com.wipro.capstoneproject.repository.IUserRepository;
 
@@ -16,13 +18,29 @@ public class UserServiceImp implements IUserService {
 	@Autowired
 	IUserRepository repo;
 
+	@Autowired
+	RestTemplate restTemplate;
+
 	@Override
-	public User addUser(User user) {
+	public User addUser(UserDTO userDTO) {
+
+		User user = new User();
+		user.setUid(userDTO.getUid());
+		user.setUname(userDTO.getUname());
+		user.setEmail(userDTO.getEmail());
+		user.setPassword(userDTO.getPassword());
+
 		return repo.save(user);
 	}
 
 	@Override
-	public User updateUser(User user) {
+	public User updateUser(UserDTO userDTO) {
+		User user = new User();
+		user.setUid(userDTO.getUid());
+		user.setUname(userDTO.getUname());
+		user.setEmail(userDTO.getEmail());
+		user.setPassword(userDTO.getPassword());
+
 		return repo.save(user);
 	}
 
@@ -48,11 +66,11 @@ public class UserServiceImp implements IUserService {
 		return repo.findByUname(uname);
 	}
 
-	public static boolean validateUser(User user) {
+	public static boolean validateUser(UserDTO user) {
 
 		boolean flag = false;
 
-		if (user.getUname().length() > 5 && user.getPassword().length() >= 5) {
+		if (user.getUname().length() > 4 && user.getEmail().length() > 4 && user.getPassword().length() >= 4) {
 
 			flag = true;
 		}

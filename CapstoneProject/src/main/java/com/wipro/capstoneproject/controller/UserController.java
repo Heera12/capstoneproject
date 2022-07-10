@@ -10,20 +10,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wipro.capstoneproject.dto.UserDTO;
 import com.wipro.capstoneproject.entity.User;
 import com.wipro.capstoneproject.service.IUserService;
 import com.wipro.capstoneproject.service.UserServiceImp;
 
 @RestController
+@RequestMapping("/cap/project/users")
 public class UserController {
 
 	@Autowired
 	IUserService service;
-	
+
 	@PostMapping("/add")
-	public User add(@RequestBody User user) {
+	public User add(@RequestBody UserDTO user) {
 
 		User u1 = null;
 		if (UserServiceImp.validateUser(user)) {
@@ -37,7 +40,7 @@ public class UserController {
 	}
 
 	@PutMapping("/update")
-	public User update(@RequestBody User user) {
+	public User update(@RequestBody UserDTO user) {
 
 		User u1 = null;
 		if (UserServiceImp.validateUser(user)) {
@@ -46,15 +49,17 @@ public class UserController {
 		}
 		return u1;
 	}
+
 	@GetMapping("/get/{uid}")
 	public User getById(@PathVariable int uid) {
 		return service.getUserById(uid);
-		
+
 	}
+
 	@GetMapping("/get-uname/{uname}")
 	public List<User> getById(@PathVariable String uname) {
 		return service.getUserByName(uname);
-		
+
 	}
 
 	@GetMapping("/getall")
@@ -63,10 +68,11 @@ public class UserController {
 		return service.getAllUsers();
 
 	}
+
 	@DeleteMapping("/delete/{uid}")
-	public ResponseEntity<String> deleteById(@PathVariable long uid){
+	public ResponseEntity<String> deleteById(@PathVariable long uid) {
 		return service.deleteUserById(uid);
-		
+
 	}
 
 }
