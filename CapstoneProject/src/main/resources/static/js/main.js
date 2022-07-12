@@ -21,10 +21,9 @@ function fire_login_ajax_submit() {
         	if("success" == status) {
         		window.open("home")
         	} else {
-        		$('#loginresponse').html("<h3>" + status + "</h3>");
+        		$('#loginresponse').html("<h3>" + "Login failed! Re-enter proper credentials" + "</h3>");
         	}
-        	
-            
+        	     
 
             console.log("Response Login Status : ", status);
             $("#btn-login").prop("disabled", false);

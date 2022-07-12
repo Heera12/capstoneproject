@@ -1,39 +1,65 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Questions</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstarp.min.css" />
+    <link rel="stylesheet" href="question.css">
 </head>
 <body>
-<div align="center">
-    <h1>Questions List</h1>
-    <a href="/new">Create New Question</a>
-    <br/><br/>
-    <table border="1" >
-        <thead>
+    <main>
+        <h1 class="faq-heading">Questions</h1>
+        <section class="faq-container">
+            <div class="faq-one">
+                <h1 class="faq-page">What is an FAQ Page?</h1>
+                <table>
+                <thead></thead>
+         <tbody>
             <tr>
-                <th>Question ID</th>
-                <th>Type</th>
-                <th>Level</th>
-                <th>Question</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="question : ${listQuestions}">
-                <td th:text="${question.id}">Question ID</td>
-                <td th:text="${question.type}">Type</td>
-                <td th:text="${question.level}">Level</td>
-                <td th:text="${question.question}">Question</td>
-                
-                <td>
-                    <a th:href="/@{'/edit/' + ${question.id}}">Edit</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="/@{'/delete/' + ${question.id}}">Delete</a>
-                </td>
+                <td text="${question.id}">Question ID</td>
+                <td text="${question.question}">Type</td>
+                <td text="${question.answer}">Level</td>
+
             </tr>
         </tbody>
-    </table>
-</div>   
+        </table>
+                
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-two">
+                <!-- faq question -->
+                <h1 class="faq-page">Why do you need an FAQ page?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-three">
+                <!-- faq question -->
+<h1 class="faq-page">Does it improves the user experience of a website?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>

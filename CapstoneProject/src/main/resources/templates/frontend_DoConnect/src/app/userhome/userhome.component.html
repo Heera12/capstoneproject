@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Do Connect</title>
+        <link rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="logo">Lets Do Connect</li>
+                <li class="btn"><span class="fas fa-bars"></span></li>
+                <div class="items">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </div>
+                <li class="search-icon">
+                    <input type="search" placeholder="Search">
+                    <label class="icon">
+                        <span class="fas fa-search"></span>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <div class="body">
+                <div class="col-8">
+                    <ul>
+                        <li *ngFor="let question of questions"> {{questions.questionId}} || {{questions.question}}</li>
+                    </ul>
+                </div></div>
+    </body>
+</html>

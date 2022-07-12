@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DoConnect</title>
+<link rel="stylesheet" type="text/css" href="login.css">
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstarp.min.css" />
+
+</head>
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<form>
+				<label for="chk" aria-hidden="true">Sign up</label> <input
+					type="text" name="txt" placeholder="User name" required>
+				<input type="email" name="email" placeholder="Email" required>
+				<input type="password" name="pswd" placeholder="Password"
+					required>
+				<button>Sign up</button>
+			</form>
+		</div>
+
+		<div class="login">
+			<form>
+				<label for="chk" aria-hidden="true">Login</label> <input type="text"
+					name="username" placeholder="Enter Username" required> <input
+					type="password" name="pswd" placeholder="Enter Password" required>
+				<div>
+					<input type="button" class="btn btn-primary" id="btn-login"
+						value="Login" onclick="fire_login_ajax_submit();" />
+				</div>
+						</form>
+				<div id="loginresponse"></div>
+		</div>
+
+
+
+	</div>
+	<script type="text/javascript"
+        src="js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>

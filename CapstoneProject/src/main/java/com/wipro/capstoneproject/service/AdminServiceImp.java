@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.wipro.capstoneproject.dto.AdminDTO;
 import com.wipro.capstoneproject.entity.Admin;
+import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
+import com.wipro.capstoneproject.exception.UserNotFoundException;
 import com.wipro.capstoneproject.repository.IAdminRepository;
 
 @Service
@@ -16,6 +18,27 @@ public class AdminServiceImp implements IAdminService {
 
 	@Autowired
 	IAdminRepository repo;
+	
+	@Override
+	public Admin login(AdminDTO adminDTO)
+	{
+		
+		System.out.println("****** name: "+ adminDTO.getName() + "  password: " + adminDTO.getPassword());
+		Admin admin = repo.findAdminByName(adminDTO.getName());
+		
+		
+		System.out.println("************************* admin is " + admin);
+		if(null == admin) {
+			throw new UserNotFoundException("Admin is not registered");
+		}
+		
+		if(!admin.getPassword().equalsIgnoreCase(adminDTO.getPassword())) {
+			throw new PasswordDoesNotMatchException("password does not match");
+		}
+		
+		return admin;
+	}
+	
 
 	@Override
 	public Admin addAdmin(AdminDTO adminDTO) {
@@ -50,7 +73,7 @@ public class AdminServiceImp implements IAdminService {
 	}
 
 	@Override
-	public List<Admin> getAdminByName(String name) {
+	public Admin getAdminByName(String name) {
 		return repo.findAdminByName(name);
 	}
 

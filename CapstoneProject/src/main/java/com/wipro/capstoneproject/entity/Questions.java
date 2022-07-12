@@ -1,7 +1,5 @@
 package com.wipro.capstoneproject.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,10 +20,6 @@ public class Questions {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long questionId;
-	private String type;
-	private String level;
-	private Date createdAt;
-	private Date updatedAt;
 	private String question;
 	
 }

@@ -14,14 +14,6 @@ public class QuestionServiceImp implements IQuestionService{
 	@Autowired
     IQuestionRepository repo;
     
-         
-        public List<Questions> listAll(String keyword) {
-            if (keyword != null) {
-                return repo.search(keyword);
-            }
-            return repo.findAll();
-        }
-
 
         public void save(Questions question) {
             repo.save(question);
@@ -34,5 +26,11 @@ public class QuestionServiceImp implements IQuestionService{
         public void delete(long id) {
             repo.deleteById(id);
         }
-         
+
+		@Override
+		public List<Questions> listAll(String question) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
     }
