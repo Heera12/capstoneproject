@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wipro.capstoneproject.dto.AdminDTO;
 import com.wipro.capstoneproject.entity.Admin;
 import com.wipro.capstoneproject.service.AdminServiceImp;
+import com.wipro.capstoneproject.service.IAnswerService;
+import com.wipro.capstoneproject.service.IQuestionService;
 
 @RestController
 @RequestMapping("/cap/project/admin")
@@ -23,6 +25,12 @@ public class AdminController {
 
 	@Autowired
 	AdminServiceImp service;
+
+	@Autowired
+	IQuestionService questionService;
+	
+	@Autowired
+	IAnswerService answerService;
 
 	@PostMapping("/add")
 	public Admin addAdmin(@RequestBody AdminDTO adminDTO) {
@@ -56,7 +64,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/get-aname/{name}")
-	public List<Admin> getAdminByName(@PathVariable String name) {
+	public Admin getAdminByName(@PathVariable String name) {
 		return service.getAdminByName(name);
 
 	}
@@ -73,4 +81,16 @@ public class AdminController {
 		return service.deleteAdminById(aid);
 
 	}
+
+	@PostMapping("/question/approval/{qid}")
+	public ResponseEntity<String> approveQuestionById(@PathVariable long qid) {
+		return questionService.approveQuestionsByAdmin(qid);
+
+	}
+	
+	@PostMapping("/answer/approval/{answerId}")
+	public ResponseEntity<String> approveAnswerById(@PathVariable long answerId){
+		return answerService.approveAnswerById(answerId);
+	}
+
 }

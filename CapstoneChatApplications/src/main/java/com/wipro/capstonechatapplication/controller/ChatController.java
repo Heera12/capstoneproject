@@ -6,20 +6,20 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
-import com.wipro.capstonechatapplication.ChatMessagePojo;
+import com.wipro.capstonechatapplication.model.ChatMessage;
 
 @Controller
 public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public ChatMessagePojo sendMessage(@Payload ChatMessagePojo chatMessagePojo) {
+    public ChatMessage sendMessage(@Payload ChatMessage chatMessagePojo) {
         return chatMessagePojo;
     }
 
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/public")
-    public ChatMessagePojo addUser(@Payload ChatMessagePojo chatMessagePojo, SimpMessageHeaderAccessor headerAccessor) {
+    public ChatMessage addUser(@Payload ChatMessage chatMessagePojo, SimpMessageHeaderAccessor headerAccessor) {
         
     // Add username in web socket session
     headerAccessor.getSessionAttributes().put("username", chatMessagePojo.getSender());

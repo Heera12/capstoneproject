@@ -8,14 +8,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.wipro.capstoneproject.dto.AdminDTO;
+
+import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Admin;
+
+import com.wipro.capstoneproject.entity.Questions;
 import com.wipro.capstoneproject.repository.IAdminRepository;
+
+import com.wipro.capstoneproject.repository.IQuestionRepository;
 
 @Service
 public class AdminServiceImp implements IAdminService {
 
 	@Autowired
 	IAdminRepository repo;
+
+	@Autowired
+	IQuestionRepository questionRepo;
+
+	/*
+	 * @Autowired IAnswersRepository answerRepo;
+	 */
 
 	@Override
 	public Admin addAdmin(AdminDTO adminDTO) {
@@ -50,7 +63,7 @@ public class AdminServiceImp implements IAdminService {
 	}
 
 	@Override
-	public List<Admin> getAdminByName(String name) {
+	public Admin getAdminByName(String name) {
 		return repo.findAdminByName(name);
 	}
 
@@ -71,6 +84,29 @@ public class AdminServiceImp implements IAdminService {
 		}
 
 		return flag;
+
+	}
+
+	@Override
+	public Questions addQuestion(QuestionDTO questionDTO) {
+
+		Questions question = new Questions();
+		question.setQuestionId(questionDTO.getQuestionId());
+		question.setQuestion(questionDTO.getQuestion());
+		question.setTopic(questionDTO.getTopic());
+
+		return questionRepo.save(question);
+	}
+
+	@Override
+	public Questions updateQuestion(QuestionDTO questionDTO) {
+
+		Questions question = new Questions();
+		question.setQuestionId(questionDTO.getQuestionId());
+		question.setQuestion(questionDTO.getQuestion());
+		question.setTopic(questionDTO.getTopic());
+
+		return questionRepo.save(question);
 
 	}
 

@@ -1,4 +1,4 @@
-package com.wipro.capstonechatapplication;
+package com.wipro.capstonechatapplication.listener;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,10 @@ import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
+
+import com.wipro.capstonechatapplication.model.ChatMessage;
+
+
 import org.slf4j.Logger;
 
 @Component
@@ -31,8 +35,8 @@ public class WebSocketEventListener {
         if(username != null) {
             logger.info("User Disconnected : " + username);
 
-            ChatMessagePojo chatMessagePojo = new ChatMessagePojo();
-            chatMessagePojo.setType(ChatMessagePojo.MessageType.LEAVE);
+            ChatMessage chatMessagePojo = new ChatMessage();
+            chatMessagePojo.setType(ChatMessage.MessageType.LEAVE);
             chatMessagePojo.setSender(username);
 
             messagingTemplate.convertAndSend("/topic/public", chatMessagePojo);
