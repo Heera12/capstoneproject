@@ -1,5 +1,7 @@
 package com.wipro.capstoneproject.service;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import com.wipro.capstoneproject.dto.UserDTO;
 import com.wipro.capstoneproject.entity.User;
 import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
 import com.wipro.capstoneproject.exception.UserNotFoundException;
+import com.wipro.capstoneproject.repository.IQuestionRepository;
 import com.wipro.capstoneproject.repository.IUserRepository;
 
 @Service
@@ -16,7 +19,10 @@ public class UserServiceImp implements IUserService {
 
 	@Autowired
 	IUserRepository repo;
-
+	
+	@Autowired
+	IQuestionRepository questionRepo;
+	
 	@Override
 	public User login(UserDTO userDTO)
 	{
@@ -96,5 +102,8 @@ public class UserServiceImp implements IUserService {
 		return flag;
 
 	}
+	
+	
+
 
 }

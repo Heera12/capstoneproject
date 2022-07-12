@@ -1,4 +1,4 @@
-package com.wipro.capstonechatapplication;
+package com.wipro.capstonechatapplication.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

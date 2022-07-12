@@ -6,7 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.wipro.capstoneproject.dto.AdminDTO;
+
+import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Admin;
+
+import com.wipro.capstoneproject.entity.Questions;
 
 @Service
 public interface IAdminService {
@@ -19,8 +23,12 @@ public interface IAdminService {
 
 	public Admin updateAdmin(AdminDTO adminDTO);
 
-	public List<Admin> getAdminByName(String name);
+	public Admin getAdminByName(String name);
 
 	public ResponseEntity<String> deleteAdminById(long aid);
+
+	public Questions addQuestion(QuestionDTO questionDTO);
+
+	public Questions updateQuestion(QuestionDTO questionDTO);
 
 }

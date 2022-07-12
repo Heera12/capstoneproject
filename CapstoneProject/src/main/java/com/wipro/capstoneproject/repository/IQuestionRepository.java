@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import com.wipro.capstoneproject.entity.Questions;
 
 public interface IQuestionRepository extends JpaRepository<Questions, Long> {
-
-	@Query("SELECT q FROM Questions q WHERE q.question LIKE %?1%")
-	public List<Questions> search(String keyword);
-
+	
+	
+	@Query(value="select * from questions_table where question like %:keyword% or topic like %:keyword%",nativeQuery=true)
+	List<Questions> findQuestionByKeyword(String keyword);
 }
 

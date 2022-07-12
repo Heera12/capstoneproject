@@ -1,8 +1,9 @@
-package com.wipro.capstonechatapplication;
+package com.wipro.capstonechatapplication.model;
 
-public class ChatMessagePojo {
 
-	 private MessageType type;
+	
+	public class ChatMessage {
+	    private MessageType type;
 	    private String content;
 	    private String sender;
 
@@ -36,3 +37,4 @@ public class ChatMessagePojo {
 	        this.sender = sender;
 	    }
 	}
+
