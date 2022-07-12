@@ -8,10 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.wipro.capstoneproject.dto.AdminDTO;
+
+import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Admin;
+<<<<<<< HEAD
 import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
 import com.wipro.capstoneproject.exception.UserNotFoundException;
+=======
+
+import com.wipro.capstoneproject.entity.Questions;
+>>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 import com.wipro.capstoneproject.repository.IAdminRepository;
+
+import com.wipro.capstoneproject.repository.IQuestionRepository;
 
 @Service
 public class AdminServiceImp implements IAdminService {
@@ -39,6 +48,13 @@ public class AdminServiceImp implements IAdminService {
 		return admin;
 	}
 	
+
+	@Autowired
+	IQuestionRepository questionRepo;
+
+	/*
+	 * @Autowired IAnswersRepository answerRepo;
+	 */
 
 	@Override
 	public Admin addAdmin(AdminDTO adminDTO) {
@@ -94,6 +110,29 @@ public class AdminServiceImp implements IAdminService {
 		}
 
 		return flag;
+
+	}
+
+	@Override
+	public Questions addQuestion(QuestionDTO questionDTO) {
+
+		Questions question = new Questions();
+		question.setQuestionId(questionDTO.getQuestionId());
+		question.setQuestion(questionDTO.getQuestion());
+		question.setTopic(questionDTO.getTopic());
+
+		return questionRepo.save(question);
+	}
+
+	@Override
+	public Questions updateQuestion(QuestionDTO questionDTO) {
+
+		Questions question = new Questions();
+		question.setQuestionId(questionDTO.getQuestionId());
+		question.setQuestion(questionDTO.getQuestion());
+		question.setTopic(questionDTO.getTopic());
+
+		return questionRepo.save(question);
 
 	}
 

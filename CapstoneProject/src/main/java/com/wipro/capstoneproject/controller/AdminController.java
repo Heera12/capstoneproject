@@ -22,7 +22,12 @@ import com.wipro.capstoneproject.entity.Login;
 import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
 import com.wipro.capstoneproject.exception.UserNotFoundException;
 import com.wipro.capstoneproject.service.AdminServiceImp;
+<<<<<<< HEAD
 import com.wipro.capstoneproject.service.LoginServiceImpl;
+=======
+import com.wipro.capstoneproject.service.IAnswerService;
+import com.wipro.capstoneproject.service.IQuestionService;
+>>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -68,6 +73,12 @@ public class AdminController {
 		return loginResponseDTO;
 		
 	}
+
+	@Autowired
+	IQuestionService questionService;
+	
+	@Autowired
+	IAnswerService answerService;
 
 	@PostMapping("/add")
 	public Admin addAdmin(@RequestBody AdminDTO adminDTO) {
@@ -140,4 +151,16 @@ public class AdminController {
 		return service.deleteAdminById(aid);
 
 	}
+
+	@PostMapping("/question/approval/{qid}")
+	public ResponseEntity<String> approveQuestionById(@PathVariable long qid) {
+		return questionService.approveQuestionsByAdmin(qid);
+
+	}
+	
+	@PostMapping("/answer/approval/{answerId}")
+	public ResponseEntity<String> approveAnswerById(@PathVariable long answerId){
+		return answerService.approveAnswerById(answerId);
+	}
+
 }
