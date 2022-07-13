@@ -17,31 +17,7 @@ import com.wipro.capstoneproject.repository.IQuestionRepository;
 public class QuestionServiceImp implements IQuestionService {
 
 	@Autowired
-<<<<<<< HEAD
-    IQuestionRepository repo;
-    
-
-        public void save(Questions question) {
-            repo.save(question);
-        }
-         
-        public Questions get(long id) {
-            return repo.findById(id).get();
-        }
-         
-        public void delete(long id) {
-            repo.deleteById(id);
-        }
-
-		@Override
-		public List<Questions> listAll(String question) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-    }
-=======
-	IQuestionRepository repo;
+        IQuestionRepository repo;
 
 	public static boolean validateQuestion(QuestionDTO question) {
 
@@ -115,12 +91,6 @@ public class QuestionServiceImp implements IQuestionService {
 		return new ResponseEntity<String>("User was added the question",HttpStatus.ACCEPTED);
 	}
 	
-
-	
-	
-
-	
 	
 
 }
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
