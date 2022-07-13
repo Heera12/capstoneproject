@@ -1,11 +1,8 @@
 package com.wipro.capstoneproject.controller;
 
-<<<<<<< HEAD
-
 import org.springframework.web.bind.annotation.CrossOrigin;
-=======
+
 import org.springframework.stereotype.Controller;
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -15,14 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @SessionAttributes("name")
 public class DisplayController {
-<<<<<<< HEAD
-
-=======
-	
-	
-		
-		 
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String displayPage() {
