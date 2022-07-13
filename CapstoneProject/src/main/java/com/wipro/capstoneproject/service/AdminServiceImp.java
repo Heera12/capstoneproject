@@ -11,13 +11,10 @@ import com.wipro.capstoneproject.dto.AdminDTO;
 
 import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Admin;
-<<<<<<< HEAD
 import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
 import com.wipro.capstoneproject.exception.UserNotFoundException;
-=======
 
 import com.wipro.capstoneproject.entity.Questions;
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 import com.wipro.capstoneproject.repository.IAdminRepository;
 
 import com.wipro.capstoneproject.repository.IQuestionRepository;
