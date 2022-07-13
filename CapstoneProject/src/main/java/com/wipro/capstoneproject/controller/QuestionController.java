@@ -1,17 +1,8 @@
 package com.wipro.capstoneproject.controller;
 
-<<<<<<< HEAD
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-=======
-
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Questions;
 import com.wipro.capstoneproject.service.EmailServiceImpl;
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 import com.wipro.capstoneproject.service.QuestionServiceImp;
 
 @CrossOrigin("http://localhost:4200")
@@ -37,8 +27,6 @@ public class QuestionController
     @Autowired
     QuestionServiceImp service;
     
-<<<<<<< HEAD
-=======
     @Autowired
     EmailServiceImpl emailService;
     
@@ -96,5 +84,4 @@ public class QuestionController
     }
     
     
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
    }
