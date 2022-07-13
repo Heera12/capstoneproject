@@ -22,10 +22,8 @@ public class Questions {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long questionId;
-<<<<<<< HEAD
-=======
+
 	private String topic;
->>>>>>> 88cd08c8d2b8c0402901be7e054897306cb6c13b
 	private String question;
 	private boolean status;
 	
