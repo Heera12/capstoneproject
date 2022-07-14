@@ -13,6 +13,8 @@ import com.wipro.capstoneproject.dto.QuestionDTO;
 import com.wipro.capstoneproject.entity.Admin;
 
 import com.wipro.capstoneproject.entity.Questions;
+import com.wipro.capstoneproject.exception.PasswordDoesNotMatchException;
+import com.wipro.capstoneproject.exception.UserNotFoundException;
 import com.wipro.capstoneproject.repository.IAdminRepository;
 
 import com.wipro.capstoneproject.repository.IQuestionRepository;
@@ -29,6 +31,27 @@ public class AdminServiceImp implements IAdminService {
 	/*
 	 * @Autowired IAnswersRepository answerRepo;
 	 */
+	
+	@Override
+	public Admin login(AdminDTO adminDTO)
+	{
+		
+		System.out.println("****** name: "+ adminDTO.getName() + "  password: " + adminDTO.getPassword());
+		Admin admin = repo.findAdminByName(adminDTO.getName());
+		
+		
+		System.out.println("************************* admin is " + admin);
+		if(null == admin) {
+			throw new UserNotFoundException("Admin is not registered");
+		}
+		
+		if(!admin.getPassword().equalsIgnoreCase(adminDTO.getPassword())) {
+			throw new PasswordDoesNotMatchException("password does not match");
+		}
+		
+		return admin;
+	}
+	
 
 	@Override
 	public Admin addAdmin(AdminDTO adminDTO) {
@@ -37,6 +60,7 @@ public class AdminServiceImp implements IAdminService {
 		admin.setName(adminDTO.getName());
 		admin.setEmail(adminDTO.getEmail());
 		admin.setPassword(adminDTO.getPassword());
+		admin.setRole(adminDTO.getRole());
 
 		return repo.save(admin);
 	}
@@ -48,6 +72,7 @@ public class AdminServiceImp implements IAdminService {
 		admin.setName(adminDTO.getName());
 		admin.setEmail(adminDTO.getEmail());
 		admin.setPassword(adminDTO.getPassword());
+		admin.setRole(adminDTO.getRole());
 
 		return repo.save(admin);
 	}
@@ -78,7 +103,7 @@ public class AdminServiceImp implements IAdminService {
 		boolean flag = false;
 
 		if (adminDTO.getName().length() > 4 && adminDTO.getEmail().length() > 4
-				&& adminDTO.getPassword().length() > 4) {
+				&& adminDTO.getPassword().length() > 4 && adminDTO.getRole()=="admin") {
 
 			flag = true;
 		}

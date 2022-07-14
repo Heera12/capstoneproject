@@ -31,4 +31,7 @@ public interface IAdminService {
 
 	public Questions updateQuestion(QuestionDTO questionDTO);
 
+	
+	public Admin login(AdminDTO adminDTO);
+
 }

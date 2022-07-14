@@ -53,6 +53,8 @@ public class UserServiceImp implements IUserService {
 		user.setUname(userDTO.getUname());
 		user.setEmail(userDTO.getEmail());
 		user.setPassword(userDTO.getPassword());
+		user.setRole(userDTO.getRole());
+
 
 		return repo.save(user);
 	}
@@ -64,6 +66,8 @@ public class UserServiceImp implements IUserService {
 		user.setUname(userDTO.getUname());
 		user.setEmail(userDTO.getEmail());
 		user.setPassword(userDTO.getPassword());
+		user.setRole(userDTO.getRole());
+
 
 		return repo.save(user);
 	}
@@ -89,12 +93,12 @@ public class UserServiceImp implements IUserService {
 	public User getUserByName(String uname) {
 		return repo.findByUname(uname);
 	}
-
+	
 	public static boolean validateUser(UserDTO user) {
 
 		boolean flag = false;
 
-		if (user.getUname().length() > 4 && user.getEmail().length() > 4 && user.getPassword().length() >= 4) {
+		if (user.getUname().length() >= 2 && user.getEmail().length() >= 2 && user.getPassword().length() >= 2 && user.getRole()=="admin"|| user.getRole() == "user") {
 
 			flag = true;
 		}

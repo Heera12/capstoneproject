@@ -17,6 +17,8 @@ public interface IQuestionService {
     
     public Questions updateQuestion(QuestionDTO questionDTO);
     
+    public List<Questions> getall();
+    
     public List<Questions> getQuestionByWord(String question);
 
     public ResponseEntity<String> deleteQuestionById(long qid);

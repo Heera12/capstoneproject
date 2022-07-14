@@ -1,5 +1,6 @@
 package com.wipro.capstoneproject.dto;
 
+import com.wipro.capstoneproject.entity.Admin;
 import com.wipro.capstoneproject.entity.Login;
 import com.wipro.capstoneproject.entity.User;
 
@@ -18,6 +19,8 @@ public class LoginResponseDTO {
 	
 	
 	public User user;
+	
+	public Admin admin;
 	
 	public Login loginDetails;
 	

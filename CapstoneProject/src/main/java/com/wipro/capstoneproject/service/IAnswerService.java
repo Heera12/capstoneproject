@@ -23,4 +23,6 @@ public interface IAnswerService {
 	
 	public ResponseEntity<String> addAnswer(AnswersDTO answersDTO);
 
+	public List<Answers> getall();
+
 }

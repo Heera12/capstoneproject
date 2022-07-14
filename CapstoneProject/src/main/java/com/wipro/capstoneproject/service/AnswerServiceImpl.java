@@ -68,6 +68,11 @@ public class AnswerServiceImpl implements IAnswerService{
 		return new ResponseEntity<String>("Answer added sucessfully",HttpStatus.ACCEPTED) ;
 	}
 
+	@Override
+	public List<Answers> getall() {
+		return repo.findAll();
+	}
+
 	
 	
 	

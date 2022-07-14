@@ -90,6 +90,12 @@ public class QuestionServiceImp implements IQuestionService {
 		addQuestionsWithMail(questionDTO);
 		return new ResponseEntity<String>("User was added the question",HttpStatus.ACCEPTED);
 	}
+
+	@Override
+	public List<Questions> getall() {
+		
+		return repo.findAll();
+	}
 	
 
 	
